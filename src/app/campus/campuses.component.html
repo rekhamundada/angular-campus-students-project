@@ -1,0 +1,32 @@
+
+<div class='panel panel-primary'>
+    <div #test class='panel-heading'>
+        {{name}}
+    </div>
+<div class='panel-body'>
+<div class='table-responsive'>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>Campus ID</th>
+                <th>Campus Name</th>
+                <th>Campus Image</th>
+                <th>Campus Details</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let campus of campuses'>
+                <td>{{ campus.campusId }}
+                </td>
+                <td>
+                    {{ campus.campusName }}
+              </td>
+                <td>{{ campus.campusImage }}</td>
+                <td>{{ campus.campusDetails}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
