@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { Campuses } from '../models/campus-model';
 import { AllCampusesService } from '../services/all-campuses.service';
 import 'rxjs/add/operator/map';
@@ -11,14 +13,22 @@ import 'rxjs/add/operator/map';
 })
 
 export class CampusesComponent implements OnInit {
+  errorMessage: string;
   name: String = 'Rekha!!!!!';
-  @Input()
-  campuses: Campuses[];
+  campuses: Observable<Campuses[]>;
+
   constructor(
     private allCampusesService: AllCampusesService
   ) { }
-
+getAllCampuses() {
+// this.campuses = this.allCampusesService.getCampuses();
+ this.campuses = this.allCampusesService.getCampuses();
+  // .subscribe(
+  //   campuses => this.campuses = campuses,
+  //   error => this.errorMessage = <any>error
+  // );
+}
   ngOnInit() {
-    this.campuses = this.allCampusesService.getCampuses();
+    this.getAllCampuses();
   }
 }
