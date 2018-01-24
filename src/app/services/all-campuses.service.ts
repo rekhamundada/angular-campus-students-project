@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
 
 import { Campuses } from '../models/campus-model';
 import { createCampuses } from '../models/test-data-campuses';
@@ -12,7 +12,7 @@ import { createCampuses } from '../models/test-data-campuses';
 export class AllCampusesService {
   constructor(private http: Http) { }
 
-  getCampuses() {
+  getCampuses(): Observable<Campuses[]> {
     // return createCampuses();
    return this.http
    .get('assets/campuses.json')
@@ -20,10 +20,19 @@ export class AllCampusesService {
     .catch(this.handleError);
     // we can use toPromise here to make it promise instead of observable
 }
+// getCampuses(): Observable<Campuses[]> {
+//   return this.http.get<Campuses[]>('assets/campuses.json')
+//   .do(data => console.log('All: ' + JSON.stringify(data)))
+//     .catch(this.handleError);
+// }
 private handleError(error: Response) {
-
   const msg = `Error status code ${error.status} at ${error.url}`;
-  console.log(msg);
   return Observable.throw(msg);
   }
+  getCampus(id: number): Observable<Campuses>  {
+    return this.getCampuses()
+      .map(campuses => campuses.find( campus =>
+      campus.campusId === id));
+  }
 }
+

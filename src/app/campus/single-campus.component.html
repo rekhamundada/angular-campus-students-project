@@ -1,0 +1,21 @@
+<div class="container">
+<div class='panel panel-primary' >
+  <div id='camp' *ngIf='campus'>
+    <div  >
+      <h1>{{campus.campusName}}</h1>
+    </div>
+    <div>
+      <h3>{{campus.campusDetails}}</h3>
+    </div>
+    <div>
+      <img [src]='campus.campusImage'>
+    </div>
+    <div class='panel-footer'>
+      <a class='btn btn-default' (click)='onBack()' data-ng-style='width:80px'>
+        <i class='glyphicon glyphicon-chevron-left'>Back</i>
+      </a>
+
+    </div>
+  </div>
+</div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CampusesComponent } from '../campus/campuses.component';
 
 @Component({
@@ -8,7 +10,7 @@ import { CampusesComponent } from '../campus/campuses.component';
 })
 
 export class NavbarComponent implements OnInit {
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 }

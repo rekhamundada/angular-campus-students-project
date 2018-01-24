@@ -4,3 +4,6 @@ export class Campuses {
   campusImage: string;
   campusDetails: string;
 }
+
+
+

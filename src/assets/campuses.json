@@ -3,14 +3,26 @@
   {
   "campusId": 1,
   "campusName": "App academy",
-  "campusImage": "campus.jpg",
+  "campusImage": "/assets/images/campus1.jpeg",
   "campusDetails": "Courses for ruby,javaScript and react"
 },
 {
 "campusId": 2,
 "campusName": "FastTrack academy",
-"campusImage": "campus.jpg",
+"campusImage": "/assets/images/campus3.jpeg",
 "campusDetails": "Courses for ruby and react-redux"
+},
+{
+  "campusId": 3,
+  "campusName": "New academy",
+  "campusImage": "/assets/images/campus2.jpeg",
+  "campusDetails": "Courses for java and dot net"
+},
+{
+  "campusId": 4,
+  "campusName": "Plural academy",
+  "campusImage": "/assets/images/new-campus.jpeg",
+  "campusDetails": "Courses for node and ruby"
 }
 ]
 }
