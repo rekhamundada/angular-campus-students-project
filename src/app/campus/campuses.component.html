@@ -1,9 +1,8 @@
 <div class="container">
-<div class='panel panel-primary'>
+<div class='panel panel-primary' >
     <div #test class='panel-heading'>
         {{name}}
     </div>
-
 <div class='panel-body'>
 <div class='table-responsive'>
     <table class='table'>
@@ -19,7 +18,7 @@
             <tr *ngFor='let campus of campuses '>
                 <td><a [routerLink]="['/campuses',campus.campusId]">{{ campus.campusId }}
                     </a></td>
-                <td>{{ campus.campusName }}</td>
+                <td><a></a>{{ campus.campusName }}</td>
                 <td>{{ campus.campusDetails}}</td>
             </tr>
         </tbody>

@@ -1,1 +1,9 @@
-
+thead {
+  color: #337AB7;
+}
+tab {
+  color: #5B63BB;
+}
+.table {
+  font-weight: bold
+}

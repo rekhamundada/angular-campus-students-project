@@ -5,8 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { Campuses } from '../models/campus-model';
-import { createCampuses } from '../models/test-data-campuses';
+ import { Campuses } from '../models/campus-model';
+ //import { Campuses } from './in-memory-data-service';
+// import { createCampuses } from '../models/test-data-campuses';
 
 @Injectable()
 export class AllCampusesService {
@@ -14,8 +15,9 @@ export class AllCampusesService {
 
   getCampuses(): Observable<Campuses[]> {
     // return createCampuses();
+    // assets/campuses.json
    return this.http
-   .get('assets/campuses.json')
+   .get('http://192.168.1.11:8181/api/v1/campus')
     .map((response: Response) => <Campuses[]> response.json().data)
     .catch(this.handleError);
     // we can use toPromise here to make it promise instead of observable

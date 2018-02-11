@@ -1,26 +1,45 @@
 
 <div class="container">
-<div class='panel panel-primary' >
-  <div id='stud' *ngIf='student'>
-    <div  >
-      <h3>StudentId {{student.studentId}}</h3>
+<div class='panel panel-primary'*ngIf='student' id="stud">
+    <div class="panel-heading" style="font-size:large" >
+      <h3>{{" Student-Details: "+ student.name }}</h3>
     </div>
-    <div>
-      <p>Student Name- {{student.name}}</p>
-      <p>Student Email- {{student.email}}</p>
-      <p>Student Gpa- {{student.gpa}}</p>
-      <p>Campus- {{student.campus}}</p>
-      <p>Campus Id- {{student.campusId}}</p>
+    <div class="panel-body" id="info">
+      <div class="row">
+          <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-6">Id:
+                  {{student.studentId}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Name: {{student.name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Email: {{student.email}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Gpa: {{student.gpa}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Campus: {{student.campus}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Campus-Id: {{student.campusId}}</div>
+            </div>
+          </div>
+      </div>
     </div>
     <div>
 
     </div>
     <div class='panel-footer'>
-      <a class='btn btn-default' (click)='onBack()' data-ng-style='width:80px'>
+      <a class="btn btn-primary" (click)='onBack()' data-ng-style='width:80px'>
         <i class='glyphicon glyphicon-chevron-left'>Back</i>
       </a>
-
-    </div>
+      <a class="btn btn-primary"data-ng-style='width:80px'>
+          <i class='glyphicon glyphicon-chevron'>Edit</i>
+      </a>
   </div>
 </div>
 </div>

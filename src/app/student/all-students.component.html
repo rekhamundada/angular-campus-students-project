@@ -1,29 +1,49 @@
 
-<div class="container">
+
 <div class='panel panel-primary'>
-  <div #test class='panel-heading'>
-  </div>
+    <div class="panel-heading">ALL-STUDENTS
+    </div>
+
 <div class='panel-body'>
 <div class='table-responsive'>
-  <table class='table'>
+  <table class='table'*ngIf="filteredStudents" id="tab">
       <thead>
           <tr>
               <th>Student Id</th>
               <th>Student Name</th>
-              <th>Student CampusId</th>
-              <th>Details</th>
+              <th>Student-CampusID</th>
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor='let student of students'>
-              <td><a [routerLink]="['/students',student.studentId]">{{ student.studentId}}
-                  </a></td>
-              <td>{{ student.name }}</td>
-              <td>{{ student.campusId}}</td>
-          </tr>
+            <tr>
+              <tr #filterStudents *ngFor='let student of filteredStudents'>
+                <td><a [routerLink]="['/students',student.studentId]">{{ student.studentId}}
+                </a></td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.campusID}}</td>
       </tbody>
     </table>
-  </div>
+
+<div class='table-responsive'>
+        <table class='table'*ngIf="!filteredStudents">
+                <thead >
+                    <tr>
+                        <th scope="col">Student Id</th>
+                        <th scope="col">Student Name</th>
+                        <th >Student-CampusID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <tr  class="bg-warning" *ngFor='let student of students'>
+                        <td><a [routerLink]="['/students',student.studentId]">{{ student.studentId}}
+                        </a></td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.campusID}}</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ </div>
 </div>
-</div>
-</div>
+

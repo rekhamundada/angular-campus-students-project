@@ -22,14 +22,12 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     const param = +this.route.snapshot.paramMap.get('id');
-
     if (param) {
      const  id = param;
       this.getstudent(id);
     }
-
   }
-getstudent(id) {
+  getstudent(id) {
   this.allStudentsService.getSingleStudent(id)
     .subscribe(
       student => this.student = student,
@@ -37,6 +35,6 @@ getstudent(id) {
     );
  }
  onBack() {
-  this.router.navigate(['/students'])
+  this.router.navigate(['/students']);
  }
 }

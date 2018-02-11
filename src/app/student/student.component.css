@@ -1,7 +1,12 @@
 #stud {
-  text-align:center
-}
-p {
-  color: #23A9B3;;
+  text-align:center;
   font-weight:bold;
 }
+p {
+  color: #23A9B3;
+  font-weight:bold;
+}
+#info {
+  text-align: center;
+}
+

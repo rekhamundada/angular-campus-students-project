@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+i {
+  font-size: large;
+}
+
+div.panel-heading {
+ font-size: x-large;
+}
+
+li {
+  cursor: pointer;
+}
+app-root div.panel.panel-primary {
+  animation-duration: .5s;
+  animation-name: slideIn;
+  animation-fill-mode: forwards;
+  transition: transform .5s ease;
+}

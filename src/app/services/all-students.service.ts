@@ -21,6 +21,21 @@ export class AllStudentsService {
       .map(response => response.json().data)
        .catch(this.handleError);
   }
+
+  getStudentsByCampusId(id: number) {
+     console.log('this is campus id passed from ui', id);
+     return this.getStudents()
+      .map(students =>  students.filter(
+        students1 => students1.campusID === id ));
+    // return [ {
+    //   'studentId': 1,
+    //   'name': 'Sumit',
+    //   'email': 'sumitmundada@gmail.com',
+    //   'gpa': 2.3,
+    //   'campus': 'CTS',
+    //   'campusID': 1
+    // }];
+  }
   // return this.getCampuses()
   // .map(campuses => campuses.find( campus =>
   // campus.campusId === id));

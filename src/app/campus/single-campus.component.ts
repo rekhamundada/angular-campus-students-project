@@ -41,7 +41,10 @@ export class SingleCampusComponent implements OnInit {
       error => this.errorMessage = error
     );
   }
+  getStudentsByCampus(campusId: number) {
+    this.router.navigate(['/students', campusId, 'campus']);
 
+  }
   onBack(): void {
     this.router.navigate(['/campuses']);
   }

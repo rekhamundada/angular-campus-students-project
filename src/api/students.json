@@ -6,7 +6,7 @@
      "email": "razz@yahoo.com",
      "gpa": 2.9,
      "campus": "New academy",
-     "campusId": 3
+     "campusID": 3
     },
     {
       "studentId": 2,
@@ -14,7 +14,7 @@
       "email": "jasmina@yahoo.com",
       "gpa": 2.9,
       "campus": "FastTrack academy",
-      "campusId": 2
+      "campusID": 2
      },
      {
       "studentId": 3,
@@ -22,7 +22,7 @@
       "email": "rocky@yahoo.com",
       "gpa": 2.8,
       "campus": "App academy",
-      "campusId": 1
+      "campusID": 1
      },
      {
       "studentId": 4,
@@ -30,7 +30,7 @@
       "email": "rachel@yahoo.com",
       "gpa": 3.7,
       "campus": "FastTrack academy",
-      "campusId": 2
+      "campusID": 2
      },
      {
       "studentId": 5,
@@ -38,7 +38,7 @@
       "email": "shazia@gmail.com",
       "gpa": 3.4,
       "campus": "App academy",
-      "campusId": 1
+      "campusID": 1
      },
      {
       "studentId": 6,
@@ -46,7 +46,7 @@
       "email": "razz@yahoo.com",
       "gpa": 3.9,
       "campus": "Plural academy",
-      "campusId": 4
+      "campusID": 4
      },
      {
       "studentId": 7,
@@ -54,7 +54,7 @@
       "email": "sam@hotmail.com",
       "gpa": 4.9,
       "campus": "Plural academy",
-      "campusId": 4
+      "campusID": 4
      },
      {
       "studentId": 8,
@@ -62,7 +62,7 @@
       "email": "archit@yahoo.com",
       "gpa": 5,
       "campus": "New academy",
-      "campusId": 2
+      "campusID": 2
      },
      {
       "studentId": 9,
@@ -70,7 +70,7 @@
       "email": "natalie@yahoo.com",
       "gpa": 2.9,
       "campus": "FastTrack academy",
-      "campusId": 2
+      "campusID": 2
      },
      {
       "studentId": 10,
@@ -78,7 +78,7 @@
       "email": "kat@yahoo.com",
       "gpa": 3.5,
       "campus": "New academy",
-      "campusId": 3
+      "campusID": 3
      }
   ]
 }
