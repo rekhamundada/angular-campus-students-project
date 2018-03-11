@@ -1,45 +1,72 @@
 
-<div class="container">
-<div class='panel panel-primary'*ngIf='student' id="stud">
-    <div class="panel-heading" style="font-size:large" >
-      <h3>{{" Student-Details: "+ student.name }}</h3>
+<!-- <div class="container">
+    <div class='panel panel-primary' >
+        <div class="panel-heading">
+            {{" Student- "+ student.name }}
+        </div>
+        <div class="camp" *ngIf='student'   class="panel-body">
+            <div>
+              <h4 class="name">Student-Id: {{student.studentId}}</h4>
+            </div>
+            <div>
+              <h4>Name: {{student.name}}</h4>
+            </div>
+            <div>
+              <h4>Email: {{student.email}}</h4>
+            </div>
+            <div>
+                <h4>Gpa: {{student.gpa}}</h4>
+            </div>
+            <div class='panel-footer'>
+                <button type="button"
+                    class="btn btn-primary"
+                    (click)='onBack()'
+                    >Back
+                </button>
+                <button type="button"
+                    class="btn btn-primary"
+                    (click)="editStudent()">Edit
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="panel-body" id="info">
-      <div class="row">
-          <div class="col-md-6">
+</div> -->
 
-            <div class="row">
-                <div class="col-md-6">Id:
-                  {{student.studentId}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Name: {{student.name}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Email: {{student.email}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Gpa: {{student.gpa}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Campus: {{student.campus}}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Campus-Id: {{student.campusId}}</div>
-            </div>
-          </div>
-      </div>
+<div class="container" style="border:1px solid #cecece;">
+<table class="table table-condensed table-hover">
+        <tbody>
+          <tr class="table-light">
+            <!-- <th scope="row">Light</th> -->
+            <td class="one">Student-Id:</td>
+            <td>{{student.studentId}}</td>
+            <td></td>
+          </tr>
+          <tr class="table-light">
+            <td class="one">Name:</td>
+            <td>{{student.name}}</td>
+            <td></td>
+          </tr>
+          <tr class="table-light">
+            <td class="one">Email:</td>
+            <td>{{student.email}}</td>
+            <td></td>
+          </tr>
+          <tr class="table-light">
+            <td class="one">Gpa:</td>
+            <td>{{student.gpa}}</td>
+            <td></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class='panel-footer'>
+            <button type="button"
+                class="btn btn-primary"
+                (click)='onBack()'
+                >Back
+            </button>
+            <button type="button"
+                class="btn btn-primary"
+                (click)="editStudent()">Edit
+            </button>
+        </div>
     </div>
-    <div>
-
-    </div>
-    <div class='panel-footer'>
-      <a class="btn btn-primary" (click)='onBack()' data-ng-style='width:80px'>
-        <i class='glyphicon glyphicon-chevron-left'>Back</i>
-      </a>
-      <a class="btn btn-primary"data-ng-style='width:80px'>
-          <i class='glyphicon glyphicon-chevron'>Edit</i>
-      </a>
-  </div>
-</div>
-</div>

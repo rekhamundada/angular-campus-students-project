@@ -1,3 +1,12 @@
-#camp{
-  text-align: center
+.camp {
+  text-align: center;
+}
+.panel-heading {
+  text-align: center;
+}
+.panel-heading {
+  background-color: #7bc2ea;
+}
+.panel {
+  text-align: center;
 }

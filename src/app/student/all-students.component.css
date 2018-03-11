@@ -1,9 +1,14 @@
-thead {
-  color: #337AB7;
+table,td {
+  border-collapse: collapse;
+  border: 1px solid #183E85;
+  text-align: center;
 }
-tab {
-  color: #5B63BB;
+
+
+th {
+  text-align: center;
+  background-color: #75c2ef;
 }
-.table {
-  font-weight: bold
+.container {
+  margin-top: 50px;
 }

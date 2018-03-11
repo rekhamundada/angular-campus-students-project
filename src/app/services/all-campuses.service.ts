@@ -1,36 +1,38 @@
-import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { catchError, tap, map } from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
+import { Campuses } from './../models/campus-model';
 import 'rxjs/add/operator/do';
-
- import { Campuses } from '../models/campus-model';
- //import { Campuses } from './in-memory-data-service';
-// import { createCampuses } from '../models/test-data-campuses';
 
 @Injectable()
 export class AllCampusesService {
-  constructor(private http: Http) { }
+  private campuses: Campuses[];
+  // private campusUrl: 'assets/campuses.json';
+  private campusUrl: 'api/campuses';
+  constructor(private http: HttpClient) { }
 
-  getCampuses(): Observable<Campuses[]> {
-    // return createCampuses();
-    // assets/campuses.json
-   return this.http
-   .get('http://192.168.1.11:8181/api/v1/campus')
-    .map((response: Response) => <Campuses[]> response.json().data)
-    .catch(this.handleError);
-    // we can use toPromise here to make it promise instead of observable
-}
 // getCampuses(): Observable<Campuses[]> {
-//   return this.http.get<Campuses[]>('assets/campuses.json')
-//   .do(data => console.log('All: ' + JSON.stringify(data)))
-//     .catch(this.handleError);
+//   return this.http
+//     .get<Campuses[]>(this.campusUrl)
+//     .pipe(
+//       tap(data => console.log(JSON.stringify(data))),
+//       tap(data => this.campuses = data),
+//       catchError(this.handleError)
+//     );
 // }
+getCampuses(): Observable<Campuses[]> {
+    return this.http.get<Campuses[]>('api/campuses')
+    .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
+ }
 private handleError(error: Response) {
   const msg = `Error status code ${error.status} at ${error.url}`;
-  return Observable.throw(msg);
+  return Observable.throw(msg + 'nnnnn');
   }
+
   getCampus(id: number): Observable<Campuses>  {
     return this.getCampuses()
       .map(campuses => campuses.find( campus =>

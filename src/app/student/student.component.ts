@@ -3,6 +3,7 @@ import { ActivatedRoute , Router } from '@angular/router';
 
 import { Students } from '../models/students-model';
 import { AllStudentsService } from '../services/all-students.service';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { AllStudentsService } from '../services/all-students.service';
 export class StudentComponent implements OnInit {
   student: Students;
   errorMessage: string;
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +30,7 @@ export class StudentComponent implements OnInit {
     }
   }
   getstudent(id) {
-  this.allStudentsService.getSingleStudent(id)
+  this.sub = this.allStudentsService.getSingleStudent(id)
     .subscribe(
       student => this.student = student,
       error => this.errorMessage = <any>error
@@ -36,5 +38,8 @@ export class StudentComponent implements OnInit {
  }
  onBack() {
   this.router.navigate(['/students']);
+ }
+ editStudent() {
+  // this.allStudentsService.updateStudent()
  }
 }

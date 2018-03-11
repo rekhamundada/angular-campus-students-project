@@ -15,6 +15,7 @@ errorMessage: string;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private allStudentsService: AllStudentsService) { }
 
   getAllStudents() {
@@ -47,5 +48,7 @@ getStudentsByCampus(campusId) {
 
     this.getAllStudents();
   }
-
+  editStudent() {
+    this.router.navigate(['/campuses', 'campuses.id', 'edit']);
+  }
 }

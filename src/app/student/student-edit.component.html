@@ -1,3 +1,100 @@
-<p>
-  student-edit works!
-</p>
+
+<div class="container">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      {{pageTitle}}
+  </div>
+
+  <div class="panel-body">
+    <form class="form-horizontal"
+      novalidate
+     (ngSubmit)="saveStudent(f)" #f="ngForm">
+      <fieldset *ngIf="student">
+
+        <div class="form-group">
+            <label  class="control-label col-md-2"
+                for="studentId">Student Id</label>
+            <div class="col-md-10">
+            <input type="number"
+                  id="studentId"
+                  class="form-control"
+                  name="studentId"
+                  placeholder="Enetr Student Id"
+                  [(ngModel)]="student.studentId" required>
+              </div>
+          </div>
+          <div class="form-group">
+
+              <label class="col-md-2 control-label" for="name">Student Name</label>
+              <div class="col-md-10">
+                <input type="text"
+                  id="name"
+                  class="form-control"
+                  name="name"
+                  placeholder="Enetr Student Name"
+                  [(ngModel)]="student.name"
+                  required>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-md-2 control-label" for="email">Student Email</label>
+              <div class="col-md-10">
+                <input type="email"
+                  id="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Enetr Student Email"
+                  [(ngModel)]="student.email"
+                  #email="ngModel"
+                  required>
+            </div>
+          </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="gpa">Student Gpa</label>
+              <div class="col-md-10">
+                <input type="text"
+                  id="gpa"
+                  class="form-control"
+                  name="gpa"
+                  placeholder="Enter Student Gpa"
+                  [(ngModel)]="student.gpa"
+                  required>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-md-2 control-label" for="campus">Student Campus</label>
+              <div class="col-md-10">
+                <input type="text"
+                  id="campus"
+                  class="form-control"
+                  name="campus"
+                  [(ngModel)]="student.campus"
+                  required>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-md-2 control-label" for="studentCampusId">Student CampusId</label>
+              <div class="col-md-10">
+                <input type="text"
+                  id="studentCampusId"
+                  class="form-control"
+                  placeholder="Campus Id"
+                  [(ngModel)]="student.campusId"
+                  required>
+            </div>
+          </div>
+
+        <div class="form-group">
+          <div class="col-md-4 col-md-offset-2">
+            <button class="btn btn-success"
+              type="submit" [disabled]="!f.valid">SUBMIT
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+</div>
+
+<pre>{{f.value | json}}</pre>

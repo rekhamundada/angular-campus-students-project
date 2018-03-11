@@ -1,8 +1,10 @@
 <div class="container">
 <div class='panel panel-primary' >
-  <div id='camp' *ngIf='campus'>
-    <div  >
-      <h1>{{campus.campusName}}</h1>
+  <div class="panel-heading">{{campus.campusName}}
+  </div>
+  <div class="camp" *ngIf='campus' class="panel-body">
+    <div>
+      <h1 class="name">{{campus.campusName}}</h1>
     </div>
     <div>
       <h3>{{campus.campusDetails}}</h3>
@@ -14,10 +16,10 @@
       <a class='btn btn-default' (click)='onBack()' data-ng-style='width:80px'>
         <i class='glyphicon glyphicon-chevron-left'>Back</i>
       </a>
-
       <a class="btn btn-primary" [routerLink]="['/students',campus.campusId, 'campus']">Students
       </a>
-      <button class="btn btn-primary" >Add Student</button>
+      <button class="btn btn-primary"
+        [routerLink]="['/campuses',campus.campusId, 'edit' ]">Add Student</button>
     </div>
   </div>
 </div>

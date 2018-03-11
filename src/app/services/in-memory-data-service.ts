@@ -1,12 +1,11 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-
 import { Campuses } from '../models/campus-model';
 import { Students } from '../models/students-model';
 
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const campuses: Campuses[] = [
+    const campuses = [
       {
         'campusId': 1,
         'campusName': 'App academy',
@@ -37,19 +36,19 @@ export class InMemoryDataService implements InMemoryDbService {
         'campusImage': '/assets/images/new-campus.jpeg',
         'campusDetails': 'Courses for react and redux'
       }
-
-
     ];
-    const students: Students[] = [
+    const students = [
       {
+        'id': 1,
         'studentId': 1,
-        'name': 'Razzz Singh',
+        'name': 'Ra Singh',
         'email': 'razz@yahoo.com',
         'gpa': 2.9,
         'campus': 'New academy',
         'campusID': 3
        },
        {
+         'id': 2,
          'studentId': 2,
          'name': 'jasmina Jacob',
          'email': 'jasmina@yahoo.com',
@@ -58,6 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 2
         },
         {
+          'id': 3,
          'studentId': 3,
          'name': 'Rocky s',
          'email': 'rocky@yahoo.com',
@@ -66,6 +66,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 1
         },
         {
+          'id': 4,
          'studentId': 4,
          'name': 'Rachel R',
          'email': 'rachel@yahoo.com',
@@ -74,6 +75,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 2
         },
         {
+          'id': 5,
          'studentId': 5,
          'name': 'Shazia',
          'email': 'shazia@gmail.com',
@@ -82,6 +84,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 1
         },
         {
+          'id': 6,
          'studentId': 6,
          'name': 'Raji ',
          'email': 'razz@yahoo.com',
@@ -90,6 +93,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 4
         },
         {
+          'id': 7,
          'studentId': 7,
          'name': 'samaira khan',
          'email': 'sam@hotmail.com',
@@ -98,6 +102,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 4
         },
         {
+          'id': 8,
          'studentId': 8,
          'name': 'Archit',
          'email': 'archit@yahoo.com',
@@ -106,6 +111,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 2
         },
         {
+          'id': 9,
          'studentId': 9,
          'name': 'Natalie',
          'email': 'natalie@yahoo.com',
@@ -114,6 +120,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campusID': 2
         },
         {
+          'id': 10,
          'studentId': 10,
          'name': 'kathy',
          'email': 'kat@yahoo.com',
@@ -121,8 +128,7 @@ export class InMemoryDataService implements InMemoryDbService {
          'campus': 'New academy',
          'campusID': 3
         }
-
     ];
-    return {campuses, students};
+    return { campuses, students};
   }
 }

@@ -1,12 +1,32 @@
-#stud {
-  text-align:center;
-  font-weight:bold;
+
+.container {
+  border:1px solid #0C29AB;
+
 }
-p {
-  color: #23A9B3;
-  font-weight:bold;
+.table {
+  border: 2px border-style #B32727
 }
-#info {
+/* .panel-heading {
+  background-color: #7bc2ea;
+}
+.panel {
+  display: block;
+
+}
+.panel-footer {
+  background-color: #C3DFEE;
+} */
+th {
+  background-color: #7bc2ea;
+
+}
+td {
+  white-space: nowrap;
+  font-weight: bold;
+}
+.panel-footer {
   text-align: center;
 }
+.one {
 
+}

@@ -1,15 +1,5 @@
-.container-fluid {
-  margin-bottom: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 150%;
-  padding: 40px;
-}
-.navbar-default {
-  background-color: #9bb5c7;
-  border-color: #e7e7e7;
-}
 
-body {
-  padding-top: 70px;
+a {
+  font-size: 20px;
+  padding: 20px;
 }
-

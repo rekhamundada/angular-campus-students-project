@@ -27,7 +27,10 @@ export class SingleCampusComponent implements OnInit {
 
   ngOnInit() {
     const param = +this.route.snapshot.paramMap.get('campusId');
-    this.name1 += `: ${param}`;
+    // if (param) {
+    //  const  id = param;
+    //   this.getstudent(id);;
+  //  this.name1 += `: ${param}`;
     if (param) {
       const campusId = param;
       this.getSingleCampus(campusId);
