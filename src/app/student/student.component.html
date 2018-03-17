@@ -34,11 +34,11 @@
 
 <div class="container" style="border:1px solid #cecece;">
 <table class="table table-condensed table-hover">
-        <tbody>
+        <tbody *ngIf="student">
           <tr class="table-light">
             <!-- <th scope="row">Light</th> -->
             <td class="one">Student-Id:</td>
-            <td>{{student.studentId}}</td>
+            <td>{{student.id}}</td>
             <td></td>
           </tr>
           <tr class="table-light">
@@ -64,9 +64,12 @@
                 (click)='onBack()'
                 >Back
             </button>
-            <button type="button"
-                class="btn btn-primary"
-                (click)="editStudent()">Edit
+            <button type="button" class="btn btn-primary"
+                [routerLink]="['/students', student.id, 'edit']" >EditMe
             </button>
+            <!-- <button type="button"
+            class="btn btn-primary"
+            (click)="onEdit()">Edit
+            </button> -->
         </div>
     </div>

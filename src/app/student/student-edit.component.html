@@ -4,27 +4,24 @@
   <div class="panel-heading">
       {{pageTitle}}
   </div>
-
   <div class="panel-body">
-    <form class="form-horizontal"
-      novalidate
+    <form class="form-horizontal" novalidate
      (ngSubmit)="saveStudent(f)" #f="ngForm">
-      <fieldset *ngIf="student">
+      <fieldset>
 
         <div class="form-group">
             <label  class="control-label col-md-2"
-                for="studentId">Student Id</label>
+                for="id">Student Id</label>
             <div class="col-md-10">
             <input type="number"
-                  id="studentId"
+                  id="id"
                   class="form-control"
-                  name="studentId"
+                  name="id"
                   placeholder="Enetr Student Id"
-                  [(ngModel)]="student.studentId" required>
+                  [(ngModel)]="student.id" required>
               </div>
           </div>
           <div class="form-group">
-
               <label class="col-md-2 control-label" for="name">Student Name</label>
               <div class="col-md-10">
                 <input type="text"
@@ -33,6 +30,7 @@
                   name="name"
                   placeholder="Enetr Student Name"
                   [(ngModel)]="student.name"
+                  #name="ngModel"
                   required>
             </div>
           </div>
@@ -58,6 +56,7 @@
                   name="gpa"
                   placeholder="Enter Student Gpa"
                   [(ngModel)]="student.gpa"
+                  #gpa="ngModel"
                   required>
             </div>
           </div>
@@ -69,25 +68,33 @@
                   class="form-control"
                   name="campus"
                   [(ngModel)]="student.campus"
+                  #campus="ngModel"
                   required>
             </div>
           </div>
           <div class="form-group">
-              <label class="col-md-2 control-label" for="studentCampusId">Student CampusId</label>
+              <label class="col-md-2 control-label" for="campusId">Student CampusId</label>
               <div class="col-md-10">
                 <input type="text"
-                  id="studentCampusId"
+                  id="campusId"
                   class="form-control"
+                  name="campusId"
                   placeholder="Campus Id"
                   [(ngModel)]="student.campusId"
+                  #campusId="ngModel"
                   required>
             </div>
           </div>
 
         <div class="form-group">
           <div class="col-md-4 col-md-offset-2">
+              <button class="btn btn-danger"
+                type="button"
+                (click)="onDelete()">DELETE
+            </button>
             <button class="btn btn-success"
-              type="submit" [disabled]="!f.valid">SUBMIT
+              type="submit" [disabled]="!f.valid"
+              >SUBMIT
             </button>
           </div>
         </div>

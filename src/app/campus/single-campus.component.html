@@ -1,8 +1,8 @@
 <div class="container">
-<div class='panel panel-primary' >
+<div class='panel panel-primary' *ngIf='campus'>
   <div class="panel-heading">{{campus.campusName}}
   </div>
-  <div class="camp" *ngIf='campus' class="panel-body">
+  <div class="camp" class="panel-body">
     <div>
       <h1 class="name">{{campus.campusName}}</h1>
     </div>
@@ -19,7 +19,7 @@
       <a class="btn btn-primary" [routerLink]="['/students',campus.campusId, 'campus']">Students
       </a>
       <button class="btn btn-primary"
-        [routerLink]="['/campuses',campus.campusId, 'edit' ]">Add Student</button>
+        [routerLink]="['/students',0, 'edit' ]">Add Student</button>
     </div>
   </div>
 </div>

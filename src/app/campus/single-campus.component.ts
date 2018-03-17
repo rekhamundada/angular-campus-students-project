@@ -1,8 +1,9 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { ActivatedRoute , Router } from '@angular/router';
-
-import { Campuses } from '../models/campus-model';
 import { AllCampusesService } from '../services/all-campuses.service';
+import { Campuses } from '../models/campus-model';
+
+
 
 @Component({
   moduleId: module.id,
@@ -36,7 +37,6 @@ export class SingleCampusComponent implements OnInit {
       this.getSingleCampus(campusId);
     }
   }
-
   private getSingleCampus(id: number) {
     this.allCampusesService.getCampus(id)
     .subscribe(
@@ -45,9 +45,9 @@ export class SingleCampusComponent implements OnInit {
     );
   }
   getStudentsByCampus(campusId: number) {
-    this.router.navigate(['/students', campusId, 'campus']);
-
+    this.router.navigate(['/students', 'campus.campusId', 'campus']);
   }
+  
   onBack(): void {
     this.router.navigate(['/campuses']);
   }

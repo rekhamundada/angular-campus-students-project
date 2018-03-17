@@ -21,6 +21,7 @@ const httpOptions = {
 @Injectable()
 export class AllStudentsService {
   private students: Students[];
+  private campus: Campuses;
   private studentUrl = 'api/students';
   private stud = Students;
 
@@ -43,7 +44,7 @@ export class AllStudentsService {
      console.log('this is campus id passed from ui', id);
      return this.getStudents()
       .map(students =>  students.filter(
-        students1 => students1.campusID === id ));
+        students1 => students1.campusId === id ));
   }
   // return this.getCampuses()
   // .map(campuses => campuses.find( campus =>
@@ -51,10 +52,11 @@ export class AllStudentsService {
   getSingleStudent(id: number): Observable<Students> {
     if (id === 0) {
       return of (this.initializeStudent());
-    }
+    } else {
      return this.getStudents()
       .map(students =>  students.find(
-        student => student.studentId  === id ));
+        student1 => student1.id  == id ));
+      }
   }
 
   private handleError(error: Response) {
@@ -65,30 +67,23 @@ export class AllStudentsService {
   createStudent(newStudent: Students): Observable<Students> {
     return this.http.post('api/students', newStudent, httpOptions)
     .pipe(
-      tap((newStudent1: Students) => console.log(`added hero w/ studentId=${newStudent1.studentId}`)),
+      tap((newStudent1: Students) => console.log(`added hero w/ studentId=${newStudent1.id}`)),
       catchError(this.handleError)
-     // catchError(this.handleError<Students>('createStudent'))
     );
-
-    // console.log('hhehheh');
-    //  return this.http.post<Students>('api/students', newStudent, httpOptions).pipe(
-    //   tap((data: Students) => console.log('hhehheh' + data)),
-    //       // tap((data: Students) => this.students.push(data)),
-    //       catchError(this.handleError)
-    //   );
   }
-  updateStudent(newStudent: Students): Observable<Students> {
-  const  url = `${this.studentUrl}${newStudent.studentId}`;
-  return this.http.put(url, newStudent, httpOptions)
+  updateStudent(student: Students): Observable<Students> {
+   const  url = `${this.studentUrl}${student.id}`;
+  // this.studentUrl + '/' + student.id
+  return this.http.put(this.studentUrl + '/' + student.id, student, httpOptions)
     .pipe(
-      tap(data => console.log('update student' + newStudent.studentId)),
+      tap(data => console.log('update student' + student)),
       catchError(this.handleError)
     );
   }
 
   saveStudent(student: Students): Observable<Students> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    if (student.studentId === 0) {
+    if (student.id === 0) {
       return this.createStudent(student);
     }
     return this.updateStudent(student);
@@ -111,15 +106,29 @@ export class AllStudentsService {
 
   private initializeStudent(): Students {
     return {
-    'studentId': 0,
+      id: 0,
       name: '',
       email: '',
       gpa: 0,
       campus: '',
-      campusID: 0,
+      campusId: 0
     };
   }
-
+  deleteStudent(id: number): Observable<any> {
+   // const  url = `${this.studentUrl}${id}`;
+    return this.http.delete(this.studentUrl + '/' + id, httpOptions)
+      .do(data => console.log('deleteStudent' + JSON.stringify(data)))
+      . catch( this.handleError);
+  }
 
 }
 
+// deleteProduct(id: number): Observable<Response> {
+//   let headers = new Headers({ 'Content-Type': 'application/json' });
+//   let options = new RequestOptions({ headers: headers });
+
+//   const url = `${this.baseUrl}/${id}`;
+//   return this.http.delete(url, options)
+//       .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
+//       .catch(this.handleError);
+// }

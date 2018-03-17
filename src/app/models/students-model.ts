@@ -1,9 +1,9 @@
 
 export class Students {
-  studentId: number;
+  id: number;
   name: string;
   email: string;
   gpa: number;
   campus: string;
-  campusID: number;
+  campusId: number;
 }

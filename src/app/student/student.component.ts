@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute , Router } from '@angular/router';
 
 import { Students } from '../models/students-model';
 import { AllStudentsService } from '../services/all-students.service';
 import { Subscription } from 'rxjs/Subscription';
+import { StudentEditComponent } from './student-edit.component';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+  students: Students[];
   student: Students;
   errorMessage: string;
   sub: Subscription;
@@ -29,6 +31,7 @@ export class StudentComponent implements OnInit {
       this.getstudent(id);
     }
   }
+
   getstudent(id) {
   this.sub = this.allStudentsService.getSingleStudent(id)
     .subscribe(
@@ -39,7 +42,14 @@ export class StudentComponent implements OnInit {
  onBack() {
   this.router.navigate(['/students']);
  }
- editStudent() {
-  // this.allStudentsService.updateStudent()
+ onEdit() {
+  this.router.navigate(['/students', this.student.id, 'edit']);
  }
+
 }
+
+// this.productService.deleteProduct(this.product.id)
+// .subscribe(
+//     () => this.onSaveComplete(`${this.product.productName} was deleted`),
+//     (error: any) => this.errorMessage = <any>error
+// );

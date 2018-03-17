@@ -1,7 +1,7 @@
 import { Students } from './../models/students-model';
 import { tap } from 'rxjs/operators';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AllStudentsService } from '../services/all-students.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -24,49 +24,77 @@ export class StudentEditComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.student = new Students;
-    // this.route.paramMap.subscribe(
-    //   params => {
-    //    this.id = +params['studentId'];
-    //   }
-    // );
+   // const campusId = +this.route.snapshot.paramMap.get('campusId');
+    // const param = +this.route.snapshot.paramMap.get('id');
+    // if (param) {
+    //  const  id = param;
+    //   this.getStudent(id);
+    // } else {
+    //  this.id  = 0;
+    // }
+    this.route.params
+      .subscribe(params => {
+        const id = +params['id'];
+        this.getStudent(id);
+      }
+      );
   }
-  updateTheStudent(studentId: number, form: NgForm) {
+// submit() {
+//   if (this.student.id) {
+//    this.allStudentsService.updateStudent(this.student)
+//     .subscribe(
+//       (student: Students) => {
+//         if (student) {
+//           this.router.navigate(['/students']);
+//         }
+//       },
+//         err => console.log(err)
+//     );
+//   } else {
+//     this.allStudentsService.createStudent(this.student)
+//       .subscribe(
+//         (student: Students) => {
+//           if (student) {
+//             this.router.navigate(['/students']);
+//           }
+//         },
+//           err => console.log(err)
+//       );
+//   }
+// }
+
+  updateTheStudent(id: number, form: NgForm) {
     const value = form.value;
     this.allStudentsService.updateStudent(value as Students)
       .subscribe(
-        data => console.log(data),
+        data => this.student = data,
         err => console.log(err)
       );
   }
-  // getStudent(id: number): void {
-  //   this.allStudentsService.getSingleStudent(id)
-  //     .subscribe(
-  //       student => console.log(student)
-  //     );
-  // }
+  getStudent(id: number): void {
+    this.allStudentsService.getSingleStudent(id)
+      .subscribe(
+        student => this.student = student
+      );
+  }
   saveStudent(form: NgForm): void {
      const value = form.value;
-    // if (this.form.valid) {
+      if (this.form.valid) {
       this.allStudentsService.createStudent(value as Students)
       .subscribe(
-        data => console.log('finding out what is returned by api', data),
+        data => console.log(data, 'new student created'),
         err => console.log('ttttttt', err)
       );
-    // }
+      this.router.navigate(['/students']);
+     }
   }
+  onDelete(id: num): void {
 
-  private initializeStudent(): Students {
-    return {
-      studentId: 11,
-      name: 'Sumit',
-      email: 'sss@gmail.com',
-      gpa: 3,
-      campus: 'New Academy',
-      campusID: 2,
-    };
+    this.allStudentsService.deleteStudent(this.student.id)
+    .subscribe(
+     () => console.log('this.student was deleted' + (this.student.id),
+     err => console.log(' Error in delete', err)
+    );
+    this.router.navigate(['/students']);
   }
-
-
-  // campusID: number;
 }

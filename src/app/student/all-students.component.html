@@ -14,12 +14,12 @@
           <tr class="table-primary" #filterStudents
             *ngFor='let student of filteredStudents'>
             <!-- <th scope="row"></th> -->
-            <td><a [routerLink]="['/students',student.studentId]">{{ student.studentId}}
+            <td><a [routerLink]="['/students',student.id]">{{ student.id}}
             </a></td>
             <td>{{ student.name }}</td>
-            <td>{{ student.campusID}}</td>
+            <td>{{ student.campusId}}</td>
             <td>
-              <button [routerLink]="['/students',student.studentId]">Details
+              <button [routerLink]="['/students',student.id]">Details
             </button>
             </td>
           </tr>
@@ -39,12 +39,12 @@
           <tr class="table-primary" #filterStudents
             *ngFor='let student of students'>
             <!-- <th scope="row"></th> -->
-            <td><a [routerLink]="['/students',student.studentId]">{{ student.studentId}}
+            <td><a [routerLink]="['/students',student.id]">{{ student.id}}
             </a></td>
             <td>{{ student.name }}</td>
-            <td>{{ student.campusID}}</td>
+            <td>{{ student.campusId}}</td>
             <td>
-              <button [routerLink]="['/students',student.studentId]">Details
+              <button [routerLink]="['/students',student.id]">Details
               </button>
             </td>
           </tr>

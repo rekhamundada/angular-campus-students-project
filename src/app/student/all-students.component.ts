@@ -30,14 +30,14 @@ getStudentsByCampus(campusId) {
   // this.filteredStudents =  this.allStudentsService
   //    .getStudentsByCampusId(campusId);
     this.allStudentsService
-    .getStudentsByCampusId(campusId).subscribe(
+    .getStudentsByCampusId(campusId)
+    .subscribe(
     students => this.filteredStudents = students,
     error => this.errorMessage = <any>error
   );
 }
 // *ngIf="!filteredStudents"
   ngOnInit() {
-    // const param = +this.route.snapshot.paramMap.get('campusId');
     const param = +this.route.snapshot.paramMap.get('campusId');
 
     if (param) {
