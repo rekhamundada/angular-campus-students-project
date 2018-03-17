@@ -123,12 +123,3 @@ export class AllStudentsService {
 
 }
 
-// deleteProduct(id: number): Observable<Response> {
-//   let headers = new Headers({ 'Content-Type': 'application/json' });
-//   let options = new RequestOptions({ headers: headers });
-
-//   const url = `${this.baseUrl}/${id}`;
-//   return this.http.delete(url, options)
-//       .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
-//       .catch(this.handleError);
-// }
